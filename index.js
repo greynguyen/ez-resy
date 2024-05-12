@@ -7,7 +7,6 @@ import {
 
 import { checkTokenExpiration } from "./utils/helpers.js";
 import schedule from "node-schedule";
-import express from "express";
 
 // Function to run booking process
 async function runBookingProcess() {
@@ -37,15 +36,3 @@ const job = schedule.scheduleJob("*/5 * * * *", function () {
 });
 
 console.log("Booking job has been scheduled to run every 5 minutes.");
-
-// Ports for Render
-const app = express();
-const port = process.env.PORT || 4000;
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
